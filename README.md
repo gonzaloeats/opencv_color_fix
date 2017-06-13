@@ -1,6 +1,6 @@
 # opencv_color_fix
 Python color correction tool
-## Goal: Correct correct green images
+## Goal: Correct green images
 
 ---
 
