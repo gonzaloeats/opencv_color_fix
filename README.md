@@ -8,8 +8,8 @@ Python color correction tool
 
 [//]: # (Image References)
 
-[image1]: ./img/hanging seal ring.jpg
-[image2]: ./img/hanging seal ring_fixed.jpg
+[image1]: ./img/hanging_seal_ring.jpg
+[image2]: ./img/hanging_seal_ring_fixed.jpg
 
 ---
 ### Dependencies 
