@@ -21,7 +21,7 @@ def simplest_cb(img, percent):
     assert img.shape[2] == 3
     assert percent > 0 and percent < 100
 
-    half_percent = percent / 25.0 # not sure how this tuning parameter works but 25 give a pretty good result
+    half_percent = percent / 10.0 # depending on the pod a range of 10.0-25.0 returns a pretty good result
 
     channels = cv2.split(img)
 
@@ -56,8 +56,8 @@ def simplest_cb(img, percent):
 if __name__ == '__main__':
     img = cv2.imread(sys.argv[1]) # add parameter for image src, example: python color_fix "c:\path\path\path.jpg"
     out = simplest_cb(img, 1)
-    # cv2.imshow("before", img) # commented out for running in batch
-    # cv2.imshow("after", out) # commented out for running in batch
+    cv2.imshow("before", img) # commented out for running in batch
+    cv2.imshow("after", out) # commented out for running in batch
     cv2.imwrite(str(sys.argv[1])[:-4] + "_fixed.jpg",out) # removes the last 4 characters of the path name and appends
                                                           # and appends _fixed.jpg 
-    # cv2.waitKey(0) # commented out for running in batch
+    cv2.waitKey(0) # commented out for running in batch
