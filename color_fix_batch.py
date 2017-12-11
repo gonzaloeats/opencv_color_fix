@@ -3,6 +3,7 @@ import cv2
 import math
 import numpy as np
 import sys
+from shutil import copyfile
 
 def apply_mask(matrix, mask, fill_value):
     masked = np.ma.array(matrix, mask=mask, fill_value=fill_value)
@@ -57,11 +58,12 @@ def simplest_cb(img, percent):
 if __name__ == '__main__':
     img = cv2.imread(sys.argv[1]) # add parameter for image src, example: python color_fix "c:\path\path\path.jpg"
     perc_val = int(sys.argv[2]) #int(raw_input("color value adj. perameter 8<x<20: "))
-    orig = simplest_cb(img,1) # no transformation
+    #orig = simplest_cb(img,1) # no transformation
     out = simplest_cb(img, perc_val) # value changes intesity 8 to 20 seems to be a good range
+    copyfile(str(sys.argv[1]), str(sys.argv[1][:-4]) + "_original.bmp")
     #cv2.imshow("before", img) # commented out for running in batch
     #cv2.imshow("after", out) # commented out for running in batch
-    cv2.imwrite(str(sys.argv[1])[:-4] + "_original.bmp",orig) # removes the last 4 characters of the path name
+    #cv2.imwrite(str(sys.argv[1])[:-4] + "_original.bmp",orig) # removes the last 4 characters of the path name
     cv2.imwrite(str(sys.argv[1])[:-4] + ".bmp",out) # removes the last 4 characters of the path name
                                                           # and appends _original.bmp ~ makes original copy 
                                                           # and appends _fixed.jpg 													  
